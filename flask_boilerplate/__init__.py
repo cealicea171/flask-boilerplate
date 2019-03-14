@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -14,6 +14,11 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return 'Hello World!'
+        return 'This is a flask-boilerplate project, not to be used in production.'
+
+    @app.route('/hello')
+    def hello():
+        name = request.args.get('name', 'World')
+        return f"Hello {name}!"
 
     return app

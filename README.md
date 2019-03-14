@@ -14,3 +14,4 @@
 14)make an init file in the flask_boilerplate folder
 15) write your code in the init files
 16) then finally, flask run
+17) started making test, not finished yet.
