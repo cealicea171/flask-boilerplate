@@ -18,7 +18,14 @@ def create_app(test_config=None):
 
     @app.route('/hello')
     def hello():
+
+        for key, value in request.args.items():
+            print(f"{key}: {value}")
         name = request.args.get('name', 'World')
         return f"Hello {name}!"
+
+    @app.route('/number/<int:n>')
+    def number_route(n):
+        return f"Number: {n}"
 
     return app
